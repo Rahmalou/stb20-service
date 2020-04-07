@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema' targetNamespace='http://univ.fr/stb20' xmlns='http://univ.fr/stb20' elementFormDefault='qualified' version="1.1">
+
+	<xs:element name='stb'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name='title' type='string128' minOccurs='1' maxOccurs='1'></xs:element>
+				<xs:element name='version' type='xs:decimal' default='0.1' minOccurs='1' maxOccurs='1'></xs:element>
+				<xs:element name='date' type='xs:date' minOccurs='1' maxOccurs='1'></xs:element>
+				<xs:element name='description' type='string128' minOccurs='1' maxOccurs='1'></xs:element>
+				<xs:element name='client' type='ClientType' minOccurs='1' maxOccurs='1'></xs:element>
+				<xs:element name='team' type='TeamType' minOccurs='1' maxOccurs='1'></xs:element>
+				<xs:element name='detail' type='DetailType' minOccurs='1' maxOccurs='1'></xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:simpleType name='string128'>
+		<xs:restriction base='xs:string'>
+			<xs:maxLength value='128'></xs:maxLength>
+			<xs:pattern value='[^_]*' />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name='string32'>
+		<xs:restriction base='xs:string'>
+			<xs:maxLength value='32'></xs:maxLength>
+			<xs:pattern value='[^\.,:;&amp;~@\(\)#!\?$\*=_]*' />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name='ClientType'>
+		<xs:sequence>
+			<xs:element name='entity' type='string32' minOccurs='1' maxOccurs='1'></xs:element>
+			<xs:element name='firstname' type='string32' minOccurs='1' maxOccurs='1'></xs:element>
+			<xs:element name='lastname' type='string32' minOccurs='0' maxOccurs='1'></xs:element>
+		
+			<xs:choice minOccurs='1' maxOccurs='unbounded'>
+				<xs:element name='mail' type='mail'></xs:element>
+				<xs:element name='tel' type='typeTel'></xs:element>
+			</xs:choice>
+			
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name='TeamType'>
+		<xs:sequence>
+			<xs:element name='person' type='PersonType' minOccurs='2' maxOccurs='8'></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name='PersonType'>
+		<xs:sequence>
+			<xs:element name='firstname'>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base='string32'>
+							<xs:attribute name='gender' type='gender' use='required' />
+							<xs:attribute name='lastname' type='string32' />
+							<xs:attribute name='mail' type='mail' use='required' />
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name='function' type='string32' minOccurs='1' maxOccurs='unbounded'></xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name='DetailType'>
+		<xs:sequence>
+			<xs:element name='feature' minOccurs='1' maxOccurs='unbounded'>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name='description' type='string128' minOccurs='1' maxOccurs='1'></xs:element>
+						<xs:element name='priority' type='priorityType' minOccurs='1' maxOccurs='1'></xs:element>
+						<xs:element name='delivery' type='xs:date' minOccurs='0' maxOccurs='1'></xs:element>
+					</xs:sequence>
+					<xs:attribute name='name' use='required' type='string32' />
+					<xs:attribute name='section' use='required' type='xs:integer' />
+					<xs:attribute name='number' use='required' type='xs:integer' />
+				</xs:complexType>
+				
+			</xs:element>
+		</xs:sequence>
+		
+	</xs:complexType>
+
+	<xs:simpleType name='priorityType'>
+		<xs:restriction base='xs:int'>
+			<xs:minInclusive value='0' />
+			<xs:maxInclusive value='10' />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name='typeTel'>
+		<xs:restriction base='xs:string'>
+			<xs:pattern value='((0[1-9][0-9]{8})|(0[1-9](\s[0-9]{2}){4})|(0\s[1-9][0-9]{2}(\s[0-9]{3}){2})|(\+33\s[1-9](\s[0-9]{2}){4}))' />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name='mail'>
+		<xs:restriction base='xs:string'>
+			<xs:pattern value='[^\.,:;~@\(\)#!\?$\*=]*@[^\.,:;~@\(\)#!\?$\*=]*\.([a-z]|[A-Z]){2,3}' />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name='gender'>
+		<xs:restriction base='xs:string'>
+			<xs:enumeration value='M.' />
+			<xs:enumeration value='Mme' />
+			<xs:enumeration value='Mrs' />
+			<xs:enumeration value='Mr' />
+			<xs:enumeration value='Miss' />
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>
