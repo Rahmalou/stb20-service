@@ -1,0 +1,243 @@
+{
+	"info": {
+		"_postman_id": "305dc9b0-d4c9-44d2-985d-770cea7c0500",
+		"name": "STB20_RAHMANI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Insertion de flux (Bon flux)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<stb:stb xmlns:stb=\"http://univ.fr/stb20\">\r\n    <stb:title>STB Test</stb:title>\r\n    <stb:version>2.0</stb:version>\r\n    <stb:date>2020-01-23</stb:date>\r\n    <stb:description>Langage web 3</stb:description>\r\n    <stb:client>\r\n        <stb:entity>Université de Rouen</stb:entity>\r\n        <stb:firstname>Rahmani</stb:firstname>\r\n        <stb:lastname>Lounis</stb:lastname>\r\n        <stb:mail>lounis@gmail.com</stb:mail>\r\n        <stb:tel>0123456789</stb:tel>\r\n        <stb:tel>01 23 45 67 89</stb:tel>\r\n        <stb:tel>0 123 456 789</stb:tel>\r\n        <stb:tel>+33 1 23 45 67 89</stb:tel>\r\n    </stb:client>\r\n    <stb:team>\r\n        <stb:person>\r\n            <stb:firstname gender=\"M.\" lastname=\"Ritchie\"\r\n\t\t\t\tmail=\"c@bell.lab\"> </stb:firstname>\r\n            <stb:function>developpeur</stb:function>\r\n        </stb:person>\r\n        <stb:person>\r\n            <stb:firstname gender=\"M.\" lastname=\"Etable de la Briere\"\r\n\t\t\t\tmail=\"calculatrice@halley.com\">Lepaute Nicole-Reine</stb:firstname>\r\n            <stb:function>chef projet</stb:function>\r\n        </stb:person>\r\n    </stb:team>\r\n    <stb:detail>\r\n        <stb:feature name=\"\" number=\"1\" section=\"1\">\r\n            <stb:description>Creation projet</stb:description>\r\n            <stb:priority>1</stb:priority>\r\n            <stb:delivery>2020-01-01</stb:delivery>\r\n        </stb:feature>\r\n        <stb:feature name=\"\" number=\"1\" section=\"2\">\r\n            <stb:description>Suppression projet</stb:description>\r\n            <stb:priority>1</stb:priority>\r\n            <stb:delivery>2020-02-05</stb:delivery>\r\n        </stb:feature>\r\n    </stb:detail>\r\n</stb:stb>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/insert",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"insert"
+					]
+				},
+				"description": "A essayer de renvoyer la même requête pour valider la contrainte  'title et version dupliqués'"
+			},
+			"response": []
+		},
+		{
+			"name": "Insertion de flux (Mauvais flux)",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<stb:stb xmlns:stb=\"http://univ.fr/stb20\">\r\n    <stb:title>STB Test</stb:title>\r\n    <stb:version>2.0</stb:version>\r\n    <stb:date>2020-01-23</stb:date>\r\n    <stb:description>Langage web 3</stb:description>\r\n    <stb:client>\r\n        <stb:entity>Université de Rouen</stb:entity>\r\n        <stb:firstname>Rahmani</stb:firstname>\r\n        <stb:lastname>Lounis</stb:lastname>\r\n        <stb:mail>lounisgmail.com</stb:mail>\r\n        <stb:tel>0123456789</stb:tel>\r\n        <stb:tel>01 23 45 67 89</stb:tel>\r\n        <stb:tel>0 123456 789</stb:tel>\r\n        <stb:tel>+33 1 23 45 67 89</stb:tel>\r\n    </stb:client>\r\n    <stb:team>\r\n        <stb:person>\r\n            <stb:firstname gender=\"M.\" lastname=\"Ritchie\"\r\n\t\t\t\tmail=\"c@bell.lab\"> </stb:firstname>\r\n            <stb:function>developpeur</stb:function>\r\n        </stb:person>\r\n        <stb:person>\r\n            <stb:firstname gender=\"M.\" lastname=\"Etable de la Briere\"\r\n\t\t\t\tmail=\"calculatrice@halley.com\">Lepaute Nicole-Reine</stb:firstname>\r\n            <stb:function>chef projet</stb:function>\r\n        </stb:person>\r\n    </stb:team>\r\n    <stb:detail>\r\n        <stb:feature name=\"\" number=\"1\" section=\"1\">\r\n            <stb:description>Creation projet</stb:description>\r\n            <stb:priority>1</stb:priority>\r\n            <stb:delivery>2020-01-01</stb:delivery>\r\n        </stb:feature>\r\n        <stb:feature name=\"\" number=\"1\" section=\"2\">\r\n            <stb:description>Suppression projet</stb:description>\r\n            <stb:priority>1</stb:priority>\r\n            <stb:delivery>2020-02-05</stb:delivery>\r\n        </stb:feature>\r\n    </stb:detail>\r\n</stb:stb>"
+				},
+				"url": {
+					"raw": "{{base_url}}/insert",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"insert"
+					]
+				},
+				"description": "Email invalide\nNuméro de téléphone invalide"
+			},
+			"response": []
+		},
+		{
+			"name": "Détail d'un flux (retour XML)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/stb?id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"stb"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "A essayer le cas où l'id existe et le cas où il n'existe pas"
+			},
+			"response": []
+		},
+		{
+			"name": "Détail d'un flux (retour HTML)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/htmlstb?id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"htmlstb"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lister les flux 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/resume",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"resume"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lister les flux 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/resume",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"resume"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Page d'accueil",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}",
+					"host": [
+						"{{base_url}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Page d'aide",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/help",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"help"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Suppression d'un flux",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/delete?id=1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6e40f6bb-0b7c-4cdf-8b01-81aef5fb48e3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1a8baee6-a4d7-46e2-9020-9e4dc1a34329",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "5abc0bfb-c04c-4980-a3a6-b46ac4d9704d",
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"id": "fb132a8f-4f0b-45d7-a3b0-d2acb79281bd",
+			"key": "base_url",
+			"value": "https://stb20-service.cleverapps.io",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,53 @@
+<stb:stb xmlns:stb="http://univ.fr/stb20">
+    <stb:title>STB Test Complexe</stb:title>
+    <stb:version>1.0</stb:version>
+    <stb:date>2020-01-28</stb:date>
+    <stb:description>Langage web 3</stb:description>
+    <stb:client>
+        <stb:entity>Université de Rouen</stb:entity>
+        <stb:firstname>Rahmani</stb:firstname>
+        <stb:lastname>Lounis</stb:lastname>
+        <stb:mail>lounis@gmail.com</stb:mail>
+        <stb:mail>loulou@ftel.fr</stb:mail>
+        <stb:tel>0123456789</stb:tel>
+        <stb:tel>01 23 45 67 89</stb:tel>
+        <stb:tel>0 123 456 789</stb:tel>
+        <stb:tel>+33 1 23 45 67 89</stb:tel>
+    </stb:client>
+    <stb:team>
+        <stb:person>
+            <stb:firstname gender="M." lastname="Ritchie"
+				mail="c@bell.lab">Pascal</stb:firstname>
+            <stb:function>developpeur</stb:function>
+            <stb:function>testeur</stb:function>
+            <stb:function>responsable client</stb:function>
+        </stb:person>
+        <stb:person>
+            <stb:firstname gender="Mme" lastname="Etable de la Briere"
+				mail="calculatrice@halley.com">Lepaute Nicole-Reine</stb:firstname>
+            <stb:function>chef projet</stb:function>
+        </stb:person>
+        <stb:person>
+            <stb:firstname gender="Mrs" lastname="Macron"
+				mail="nicole@halley.com">Nicole</stb:firstname>
+            <stb:function>chef projet</stb:function>
+        </stb:person>
+    </stb:team>
+    <stb:detail>
+        <stb:feature name="cr" number="1" section="1">
+            <stb:description>Creation projet</stb:description>
+            <stb:priority>1</stb:priority>
+            <stb:delivery>2020-01-01</stb:delivery>
+        </stb:feature>
+        <stb:feature name="del" number="1" section="2">
+            <stb:description>Suppression projet</stb:description>
+            <stb:priority>5</stb:priority>
+            <stb:delivery>2020-02-05</stb:delivery>
+        </stb:feature>
+        <stb:feature name="upd" number="1" section="3">
+            <stb:description>Modification projet</stb:description>
+            <stb:priority>9</stb:priority>
+            <stb:delivery>2020-01-08</stb:delivery>
+        </stb:feature>
+    </stb:detail>
+</stb:stb>
