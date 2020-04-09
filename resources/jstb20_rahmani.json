@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Insertion de flux (Bon flux)",
+			"name": "Ajout d'une STB (Bon flux)",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -14,11 +14,16 @@
 						"key": "Content-Type",
 						"value": "application/xml",
 						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "<stb:stb xmlns:stb=\"http://univ.fr/stb20\">\r\n    <stb:title>STB Test</stb:title>\r\n    <stb:version>2.0</stb:version>\r\n    <stb:date>2020-01-23</stb:date>\r\n    <stb:description>Langage web 3</stb:description>\r\n    <stb:client>\r\n        <stb:entity>Université de Rouen</stb:entity>\r\n        <stb:firstname>Rahmani</stb:firstname>\r\n        <stb:lastname>Lounis</stb:lastname>\r\n        <stb:mail>lounis@gmail.com</stb:mail>\r\n        <stb:tel>0123456789</stb:tel>\r\n        <stb:tel>01 23 45 67 89</stb:tel>\r\n        <stb:tel>0 123 456 789</stb:tel>\r\n        <stb:tel>+33 1 23 45 67 89</stb:tel>\r\n    </stb:client>\r\n    <stb:team>\r\n        <stb:person>\r\n            <stb:firstname gender=\"M.\" lastname=\"Ritchie\"\r\n\t\t\t\tmail=\"c@bell.lab\"> </stb:firstname>\r\n            <stb:function>developpeur</stb:function>\r\n        </stb:person>\r\n        <stb:person>\r\n            <stb:firstname gender=\"M.\" lastname=\"Etable de la Briere\"\r\n\t\t\t\tmail=\"calculatrice@halley.com\">Lepaute Nicole-Reine</stb:firstname>\r\n            <stb:function>chef projet</stb:function>\r\n        </stb:person>\r\n    </stb:team>\r\n    <stb:detail>\r\n        <stb:feature name=\"\" number=\"1\" section=\"1\">\r\n            <stb:description>Creation projet</stb:description>\r\n            <stb:priority>1</stb:priority>\r\n            <stb:delivery>2020-01-01</stb:delivery>\r\n        </stb:feature>\r\n        <stb:feature name=\"\" number=\"1\" section=\"2\">\r\n            <stb:description>Suppression projet</stb:description>\r\n            <stb:priority>1</stb:priority>\r\n            <stb:delivery>2020-02-05</stb:delivery>\r\n        </stb:feature>\r\n    </stb:detail>\r\n</stb:stb>",
+					"raw": "<stb:stb xmlns:stb=\"http://univ.fr/stb20\">\r\n    <stb:title>STB Test Complexe</stb:title>\r\n    <stb:version>1.0</stb:version>\r\n    <stb:date>2020-01-28</stb:date>\r\n    <stb:description>Langage web 3</stb:description>\r\n    <stb:client>\r\n        <stb:entity>Université de Rouen</stb:entity>\r\n        <stb:firstname>Rahmani</stb:firstname>\r\n        <stb:lastname>Lounis</stb:lastname>\r\n        <stb:mail>lounis@gmail.com</stb:mail>\r\n        <stb:mail>loulou@ftel.fr</stb:mail>\r\n        <stb:tel>0123456789</stb:tel>\r\n        <stb:tel>01 23 45 67 89</stb:tel>\r\n        <stb:tel>0 123 456 789</stb:tel>\r\n        <stb:tel>+33 1 23 45 67 89</stb:tel>\r\n    </stb:client>\r\n    <stb:team>\r\n        <stb:person>\r\n            <stb:firstname gender=\"M.\" lastname=\"Ritchie\"\r\n\t\t\t\tmail=\"c@bell.lab\">Pascal</stb:firstname>\r\n            <stb:function>developpeur</stb:function>\r\n            <stb:function>testeur</stb:function>\r\n        </stb:person>\r\n        <stb:person>\r\n            <stb:firstname gender=\"Mme\" lastname=\"Etable de la Briere\"\r\n\t\t\t\tmail=\"calculatrice@halley.com\">Lepaute Nicole-Reine</stb:firstname>\r\n            <stb:function>chef projet</stb:function>\r\n        </stb:person>\r\n        <stb:person>\r\n            <stb:firstname gender=\"Mrs\" lastname=\"Macron\"\r\n\t\t\t\tmail=\"nicole@halley.com\">Nicole</stb:firstname>\r\n            <stb:function>chef projet</stb:function>\r\n        </stb:person>\r\n    </stb:team>\r\n    <stb:detail>\r\n        <stb:feature name=\"cr\" number=\"1\" section=\"1\">\r\n            <stb:description>Creation projet</stb:description>\r\n            <stb:priority>1</stb:priority>\r\n            <stb:delivery>2020-01-01</stb:delivery>\r\n        </stb:feature>\r\n        <stb:feature name=\"del\" number=\"1\" section=\"2\">\r\n            <stb:description>Suppression projet</stb:description>\r\n            <stb:priority>5</stb:priority>\r\n            <stb:delivery>2020-02-05</stb:delivery>\r\n        </stb:feature>\r\n        <stb:feature name=\"upd\" number=\"1\" section=\"3\">\r\n            <stb:description>Modification projet</stb:description>\r\n            <stb:priority>9</stb:priority>\r\n            <stb:delivery>2020-01-08</stb:delivery>\r\n        </stb:feature>\r\n    </stb:detail>\r\n</stb:stb>",
 					"options": {
 						"raw": {
 							"language": "xml"
@@ -39,12 +44,17 @@
 			"response": []
 		},
 		{
-			"name": "Insertion de flux (Mauvais flux)",
+			"name": "Ajout d'une STB (Mauvais flux)",
 			"request": {
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
 						"value": "application/xml",
 						"type": "text"
 					}
@@ -67,10 +77,16 @@
 			"response": []
 		},
 		{
-			"name": "Détail d'un flux (retour XML)",
+			"name": "Détail d'une STB (format XML)",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{base_url}}/stb?id=1",
 					"host": [
@@ -91,12 +107,18 @@
 			"response": []
 		},
 		{
-			"name": "Détail d'un flux (retour HTML)",
+			"name": "Détail d'une STB (format HTML)",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "{{base_url}}/htmlstb?id=1",
+					"raw": "{{base_url}}/htmlstb?id=30",
 					"host": [
 						"{{base_url}}"
 					],
@@ -106,7 +128,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "1"
+							"value": "30"
 						}
 					]
 				}
@@ -114,10 +136,16 @@
 			"response": []
 		},
 		{
-			"name": "Lister les flux 1",
+			"name": "Lister les STB avec GET",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{base_url}}/resume",
 					"host": [
@@ -131,10 +159,16 @@
 			"response": []
 		},
 		{
-			"name": "Lister les flux 2",
+			"name": "Lister les STB avec POST",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{base_url}}/resume",
 					"host": [
@@ -151,7 +185,13 @@
 			"name": "Page d'accueil",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{base_url}}",
 					"host": [
@@ -165,7 +205,13 @@
 			"name": "Page d'aide",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "{{base_url}}/help",
 					"host": [
@@ -179,12 +225,18 @@
 			"response": []
 		},
 		{
-			"name": "Suppression d'un flux",
+			"name": "Suppression d'une STB",
 			"request": {
 				"method": "DELETE",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "{{base_url}}/delete?id=1",
+					"raw": "{{base_url}}/delete?id=25",
 					"host": [
 						"{{base_url}}"
 					],
@@ -194,7 +246,7 @@
 					"query": [
 						{
 							"key": "id",
-							"value": "1"
+							"value": "25"
 						}
 					]
 				}
@@ -226,14 +278,14 @@
 	],
 	"variable": [
 		{
-			"id": "5abc0bfb-c04c-4980-a3a6-b46ac4d9704d",
+			"id": "99bce667-4f90-4fb9-aded-07c74ee090c7",
 			"key": "base_url",
 			"value": "http://localhost:8080",
 			"type": "string",
 			"disabled": true
 		},
 		{
-			"id": "fb132a8f-4f0b-45d7-a3b0-d2acb79281bd",
+			"id": "5850ed82-1051-44db-bdc9-c139f69b5f1c",
 			"key": "base_url",
 			"value": "https://stb20-service.cleverapps.io",
 			"type": "string"
